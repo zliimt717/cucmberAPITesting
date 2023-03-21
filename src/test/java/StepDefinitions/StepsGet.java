@@ -11,7 +11,7 @@ import org.springframework.web.client.RestTemplate;
 
 
 
-public class Steps {
+public class StepsGet {
 
     private static String empURI;
 
