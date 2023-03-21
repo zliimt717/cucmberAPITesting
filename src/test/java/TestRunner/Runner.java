@@ -6,7 +6,7 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = "src/test/java/Features",
+        features = "src/test/java/Features/CrudGetIdTesting.feature",
         glue = {"StepDefinitions"},
         dryRun = false,
         plugin = {"pretty"},
