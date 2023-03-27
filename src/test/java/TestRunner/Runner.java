@@ -6,11 +6,12 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = "src/test/java/Features/CrudGetIdTesting.feature",
+        features = "src/test/java/Features",
         glue = {"StepDefinitions"},
         dryRun = false,
         plugin = {"pretty"},
-        monochrome = true
+        monochrome = true,
+        tags = "@APITesting"
 )
 public class Runner {
 

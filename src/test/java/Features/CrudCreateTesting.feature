@@ -1,3 +1,4 @@
+@CreateTesting @APITesting
 Feature: Test CRUD methods in Sample Employee REST API Create
   Scenario: Create employee record
     Given I set new employee service api endpoint

@@ -28,7 +28,7 @@ public class StepsUpdate {
         responseGetId=restTemplate.getForEntity(empIdURI,String.class);
         jsonBody =responseGetId.getBody();
         System.out.println("JsonBody: "+ jsonBody);
-
+        //update employee response body, for example salary
         replaceBody= jsonBody.replace("345000","445000");
         System.out.println("replace body: "+replaceBody);
     }
@@ -37,10 +37,9 @@ public class StepsUpdate {
         HttpHeaders headers=new HttpHeaders();
         headers.add("Accept","application/json");
         headers.add("Content-Type","application/json");
-        HttpEntity<String> entity=new HttpEntity<String>(replaceBody,headers);
+        HttpEntity<String> entity=new HttpEntity<>(replaceBody,headers);
         // Using put method to update employ response body
         response=restTemplate.exchange(empUpdateURI, HttpMethod.PUT,entity,String.class);
-        Thread.sleep(10000);
         responseBody =response.getBody();
 
         System.out.println("jsonBody: "+ responseBody);

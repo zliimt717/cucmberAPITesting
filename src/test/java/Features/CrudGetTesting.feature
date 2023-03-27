@@ -1,3 +1,4 @@
+@GetTesting @APITesting
 Feature: Test CRUD methods in Sample Employee REST API testing
   Scenario: Check Employee service api endpoint
     Given I set GET employee service api endpoint

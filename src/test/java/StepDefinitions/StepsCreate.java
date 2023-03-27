@@ -22,7 +22,7 @@ public class StepsCreate {
     @When("I set Create new employee request Body")
     public void setPOSTRequest() {
 
-       jsonBody_new=" {\"id\": 210," +
+       jsonBody_new=" {\"id\": 24," +
                 "\"employee_name\": \"Jenetts Caldasc\"," +
                 "\"employee_salary\": 445000," +
                 "\"employee_age\": 34," +
