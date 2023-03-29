@@ -13,7 +13,7 @@ import org.springframework.web.client.RestTemplate;
 
 public class StepsGet {
 
-    private static String empURI;
+    public static final String empURI="http://localhost:8080/customers";
 
     private HttpHeaders headers=new HttpHeaders();
 
@@ -23,8 +23,7 @@ public class StepsGet {
 
     @Given("I set GET employee service api endpoint")
     public void setGetEndpoint(){
-       empURI ="https://dummy.restapiexample.com/api/v1/employees";
-       System.out.println("Add URL :"+ empURI);
+        System.out.println("Add URL :"+ empURI);
     }
     @When("I set request HEADER")
     public void setRequestHeader() {
@@ -50,8 +49,6 @@ public class StepsGet {
 
 
     }
-
-
 
 }
 

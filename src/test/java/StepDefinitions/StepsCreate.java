@@ -8,26 +8,26 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 
+import static StepDefinitions.StepsGet.*;
+
 public class StepsCreate {
-    private String empURI,jsonBody_new;
+    private String empCreateURI,jsonBody_new;
     private RestTemplate restTemplate;
     private ResponseEntity<String> response_new;
 
     private HttpHeaders headers=new HttpHeaders();
     @Given("I set new employee service api endpoint")
     public void setPOSTEndpoint() {
-        empURI="https://dummy.restapiexample.com/api/v1/create";
-        System.out.println(" URL :"+empURI);
+        empCreateURI =empURI+"/post/customer";
+        System.out.println(" URL :"+ empCreateURI);
     }
     @When("I set Create new employee request Body")
     public void setPOSTRequest() {
 
-       jsonBody_new=" {\"id\": 24," +
-                "\"employee_name\": \"Jenetts Caldasc\"," +
-                "\"employee_salary\": 445000," +
-                "\"employee_age\": 34," +
-                "\"profile_image\": \"\"" +
-                "}";
+       jsonBody_new="{\n" +
+               "        \"firstname\": \"Jane\",\n" +
+               "        \"lastname\": \"Emma\"\n" +
+               "    }";
         System.out.println("jsonBody: "+jsonBody_new);
 
     }
@@ -40,7 +40,7 @@ public class StepsCreate {
 
         HttpEntity<String> entity_new=new HttpEntity<>(jsonBody_new,headers);
         restTemplate=new RestTemplate();
-        response_new=restTemplate.postForEntity(empURI,entity_new,String.class);
+        response_new=restTemplate.postForEntity(empCreateURI,entity_new,String.class);
 
     }
 

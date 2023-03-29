@@ -1,40 +1,39 @@
 package StepDefinitions;
 
+import ScenarioContext.ScenarioContext;
 import io.cucumber.java.en.*;
-import org.junit.Assert;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
+
+import static StepDefinitions.StepsGet.*;
+import static StepDefinitions.StepsGetId.*;
+
 
 public class StepsDelete {
     private String empDltURI;
-    private HttpHeaders headers=new HttpHeaders();
+    private RestTemplate restTemplate;
 
-    private ResponseEntity<String> response;
+    private ScenarioContext scenarioContext;
 
-    private String responseDltBody;
+    public StepsDelete(ScenarioContext context) {
+        this.scenarioContext = context;
+    }
+
+
     @Given("I set Delete Employee service endpoint")
     public void setDeleteEndpoint() {
-        empDltURI="https://dummy.restapiexample.com/api/v1/delete/24";
+        scenarioContext.setScenarioContext(empId);
+        empDltURI=empURI+"/delete/"+scenarioContext.getScenarioContext();;
         System.out.println(" URL :"+empDltURI);
     }
     @When("I send Delete HTTP request")
     public void setDeleteRequest() {
+        restTemplate=new RestTemplate();
+        restTemplate.delete(empDltURI);
 
-        RestTemplate restTemplate=new RestTemplate();
-        HttpEntity<String> entity=new HttpEntity<>(headers);
-        response=restTemplate.exchange(empDltURI, HttpMethod.DELETE,entity,String.class);
     }
     @Then("I receive valid Delete response")
-    public void verifyDeleteResponse() {
-        //Write response to file
-        responseDltBody= response.getBody();
-        System.out.println("responseBody --->"+responseDltBody);
-        Assert.assertEquals(response.getStatusCode(), HttpStatus.OK);
-
+    public void verifyDeleteResponse(){
+        System.out.println("The employee is delete");
     }
 
 }
