@@ -28,13 +28,13 @@ public class StepsUpdate {
     @Given("I set PUT employee service api endpoint")
     public void setPutEndpoint() {
         scenarioContext.setScenarioContext(empId);
-        empUpdateURI=empURI+"/put/"+scenarioContext.getScenarioContext();;
+        empUpdateURI=empURI+"/put/"+scenarioContext.getScenarioContext();
         System.out.println(" URL :"+empUpdateURI);
     }
     @When("I set Update request Body")
     public void setUpdateRequest() {
         // get employee response body
-        empIdURI=empURI+"/"+empId;
+        empIdURI=empURI+"/"+scenarioContext.getScenarioContext();
         restTemplate=new RestTemplate();
         responseGetId=restTemplate.getForEntity(empIdURI,String.class);
         jsonBody =responseGetId.getBody();

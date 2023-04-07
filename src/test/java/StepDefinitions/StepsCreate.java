@@ -18,7 +18,7 @@ public class StepsCreate {
     private HttpHeaders headers=new HttpHeaders();
     @Given("I set new employee service api endpoint")
     public void setPOSTEndpoint() {
-        empCreateURI =empURI+"/post/customer";
+        empCreateURI =empURI+"/post/employee";
         System.out.println(" URL :"+ empCreateURI);
     }
     @When("I set Create new employee request Body")

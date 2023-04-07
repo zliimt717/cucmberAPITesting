@@ -13,7 +13,7 @@ import org.springframework.web.client.RestTemplate;
 
 public class StepsGet {
 
-    public static final String empURI="http://localhost:8080/customers";
+    public static final String empURI="http://localhost:8080/employees";
 
     private HttpHeaders headers=new HttpHeaders();
 
